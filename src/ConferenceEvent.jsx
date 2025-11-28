@@ -4,7 +4,7 @@ import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementQuantity, decrementQuantity } from "./venueSlice";
 import { incrementAvQuantity, decrementAvQuantity} from "./avSlice";
-import {toggleMealSelection} from "./MealsSlice"
+import { toggleMealSelection } from "./MealsSlice"
 const ConferenceEvent = () => {
     const [showItems, setShowItems] = useState(false);
     const [numberOfPeople, setNumberOfPeople] = useState(1);
@@ -208,7 +208,6 @@ const ConferenceEvent = () => {
                             <div id="meals" className="venue_container container_main">
 
                                 <div className="text">
-
                                     <h1>Meals Selection</h1>
                                 </div>
 
@@ -218,9 +217,9 @@ const ConferenceEvent = () => {
                                             onChange={(e) => setNumberOfPeople(parseInt(e.target.value))}
                                             min="1"
                                         />
-                                    </div> 
-                                </div>
-                                <div className="meal_selection">
+                                </div> 
+                            </div>
+                            <div className="meal_selection">
                                 <div className="meal_selection">
                                     {mealsItems.map((item, index) => (
                                         <div className="meal_item" key={index} style={{ padding: 15 }}>
@@ -232,15 +231,15 @@ const ConferenceEvent = () => {
                                                 <label htmlFor={`meal_${index}`}> {item.name} </label>
                                             </div>
                                         <div className="meal_cost">${item.cost}</div>
-                                    </div>
-                                    ))}
-                                    </div>
+                                        </div>
+                                        ))}
+                                        </div>
                                 </div>
                                 <div className="total_cost">Total Cost: {mealsTotalCost}</div>
 
 
-                            </div>
-                        </div>
+                                </div>
+                        
                     ) : (
                         <div className="total_amount_detail">
                             <TotalCost totalCosts={totalCosts} handleClick={handleToggleItems} ItemsDisplay={() => <ItemsDisplay items={items} />} />
